@@ -1,0 +1,11 @@
+auth:
+  port: 8800
+  jwt_secret: ""         # Set via JWT_SECRET env var; auto-generated if empty
+  db_path: "data/users.db"
+  rp_id: "localhost"     # WebAuthn Relying Party ID – must match the browser origin hostname
+  rp_name: "Open AI Grid"
+  origin: "http://localhost:8800"   # Full origin used during passkey verification
+  internal_api_key: ""   # Shared secret for node → auth contribution recording
+
+logging:
+  level: "INFO"

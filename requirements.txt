@@ -1,0 +1,11 @@
+aiohttp>=3.10.0,<4
+aiosqlite>=0.20.0,<1
+bcrypt>=4.1.0,<5
+pyotp>=2.9.0,<3
+python-jose[cryptography]>=3.3.0,<4
+pyyaml>=6.0.1,<7
+click>=8.1.7,<9
+rich>=13.7.0,<15
+
+# Optional – install for full WebAuthn/passkey cryptographic verification
+# pip install webauthn

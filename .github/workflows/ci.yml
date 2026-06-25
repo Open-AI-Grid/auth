@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Verify VERSION
+        run: |
+          python -c "
+          import re; v = open('VERSION').read().strip()
+          assert re.match(r'^\d+\.\d+\.\d+$', v), f'Bad VERSION: {v}'
+          print('VERSION:', v)
+          "
+      - name: Import check
+        run: python -c "from src.server import create_app; print('OK')"
